@@ -1,0 +1,33 @@
+* {
+  background-color: beige;
+}
+
+.header {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.subheader, .new-contact-subheader {
+  display: flex;
+  justify-content: center;
+}
+
+.new-contact-subheader-title {
+  padding: 0 50px 0 50px;
+}
+
+.new-contact-subheader-button {
+  height: 30px;
+  margin: 18px 250px 0 0;
+}
+
+.new-contact-button {
+  margin-left: 60%;
+  height: 30px;
+  margin-top: 15px;
+}
+
+.search-bar {
+  padding: 20px;
+}
