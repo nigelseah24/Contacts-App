@@ -1,10 +1,15 @@
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import {useNavigate, useLocation } from "react-router-dom";
 
 export default function UpdateContact() {
   const location = useLocation();
   const contact  = location.state.contact;
-  console.log(contact);
+  const navigate = useNavigate();
+  
+  // Function to navigate to the home page
+  const navigateToHome = () => {
+    navigate("/");
+  };
 
   function handleUpdate(event) {
     event.preventDefault();
@@ -35,16 +40,18 @@ export default function UpdateContact() {
 
   return (
     <div>
-      <h2>Update Contact</h2>
+        <button
+          className="new-contact-subheader-button"
+          onClick={navigateToHome}
+        >Cancel</button>
+      <h2>Update {contact.name}</h2>
       <form action="PUT" onSubmit={handleUpdate}>
-        <label>Existing contact ID: </label>
-        <input type="number" id="id" /><br/><br/>
-        <label>New name: </label>
-        <input type="text" id="name" /><br/><br/>
-        <label>New email: </label>
-        <input type="email" id="email" /><br/><br/>
-        <label>New date of birth: </label>
-        <input type="date" id="dob" /><br/><br/>
+        <label>Name: </label>
+        <input type="text" id="name" placeholder={contact.name}/><br/><br/>
+        <label>Email: </label>
+        <input type="email" id="email" placeholder={contact.email}/><br/><br/>
+        <label>Date of birth: </label>
+        <input type="date" id="dob" placeholder={contact.dob}/><br/><br/>
         <button type="submit">Update</button>
       </form>
     </div>

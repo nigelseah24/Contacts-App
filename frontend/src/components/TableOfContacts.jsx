@@ -1,3 +1,5 @@
+import UpdateContact from "./UpdateContact";
+
 function TableOfContacts({ toggleContactCard, sortedContacts}) {
     return (
       <div>

@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar'
 import CreateNewContact from './components/CreateNewContact'
 import TableOfContacts from './components/TableOfContacts'
 import UpdateContact from './components/UpdateContact'
+import ContactCard from './components/ContactCard'
 import './App.css'
 
 function App() {
@@ -38,12 +39,9 @@ function App() {
 
   // Function to navigate to the "/update" route with the contact object as a parameter
   const navigateToUpdate = (contact) => {
-    navigate(`/update`, { 
+    navigate(`/card`, { 
       state: {
-        id: contact.id,
-        name: contact.name,
-        email: contact.email,
-        dob: contact.dob
+        contact: contact
        }
     });
   };
@@ -61,6 +59,7 @@ function App() {
             <TableOfContacts sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate}/>
           </main>
         } />
+        <Route path='/card' element={<ContactCard />} />
         <Route path="/update" element={<UpdateContact />} />
         <Route path='/create' element={<CreateNewContact contact={contacts}/>} />
       </Routes>
