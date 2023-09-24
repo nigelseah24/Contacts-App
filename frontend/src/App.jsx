@@ -54,7 +54,7 @@ function App() {
           <main>
             <div className='subheader'>
               <SearchBar />
-              <button onClick={navigateToCreate} className='new-contact-button'>New Contact</button>
+              <button onClick={navigateToCreate} className='new-contact-button'>+</button>
             </div>
             <TableOfContacts sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate}/>
           </main>

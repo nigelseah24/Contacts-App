@@ -1,5 +1,3 @@
-import UpdateContact from "./UpdateContact";
-
 function TableOfContacts({ toggleContactCard, sortedContacts}) {
     return (
       <div>
@@ -12,7 +10,7 @@ function TableOfContacts({ toggleContactCard, sortedContacts}) {
           </thead>
           <tbody>
             {sortedContacts.map((contacts) => (
-                <tr key={contacts.id} onClick={() => toggleContactCard(contacts)}>
+                <tr key={contacts.id} onClick={() => toggleContactCard(contacts)} className="contacts-individual">
                   <td>{contacts.name}</td>
                 </tr>
             ))}

@@ -1,5 +1,6 @@
 * {
-  background-color: beige;
+  background-color: rgb(40, 40, 40);
+  color: white;
 }
 
 .header {
@@ -13,6 +14,11 @@
   justify-content: center;
 }
 
+.contacts-individual {
+  padding: 50px;
+  cursor: pointer;
+}
+
 .new-contact-subheader-title {
   padding: 0 50px 0 50px;
 }
@@ -20,14 +26,23 @@
 .new-contact-subheader-button {
   height: 30px;
   margin: 18px 250px 0 0;
+  border: none;
+  color: rgb(0, 149, 255);
+  cursor: pointer;
 }
 
 .new-contact-button {
   margin-left: 60%;
   height: 30px;
+  width: 30px;
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .search-bar {
   padding: 20px;
+}
+
+.contact-card-header {
+  display: flex;
 }

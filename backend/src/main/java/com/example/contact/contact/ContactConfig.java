@@ -17,11 +17,13 @@ public class ContactConfig {
             Contact mariam = new Contact(
                     "Mariam",
                     "mariam@gmail.com",
+                    "0121223444",
                     LocalDate.of(2000, Month.JANUARY, 5)
             );
             Contact alex = new Contact(
                     "Alex",
                     "alex@gmail.com",
+                    "0121223499",
                     LocalDate.of(2004, Month.JANUARY, 5)
             );
 

@@ -1,14 +1,14 @@
 import axios from "axios";
 import {useNavigate, useLocation } from "react-router-dom";
 
-export default function UpdateContact() {
+function UpdateContact() {
   const location = useLocation();
   const contact  = location.state.contact;
   const navigate = useNavigate();
   
   // Function to navigate to the home page
-  const navigateToHome = () => {
-    navigate("/");
+  const navigateToCard = () => {
+    navigate("/card", { state: { contact } });
   };
 
   function handleUpdate(event) {
@@ -16,10 +16,11 @@ export default function UpdateContact() {
     const data = {
       id: document.getElementById("id").value,
       name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
       email: document.getElementById("email").value,
       dob: document.getElementById("dob").value,
     };
-    const url = `http://localhost:8080/api/v1/contact/${data.id}?name=${data.name}&email=${data.email}&dob=${data.dob}`;
+    const url = `http://localhost:8080/api/v1/contact/${data.id}?name=${data.name}&phone=${data.phone}&email=${data.email}&dob=${data.dob}`;
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -42,18 +43,22 @@ export default function UpdateContact() {
     <div>
         <button
           className="new-contact-subheader-button"
-          onClick={navigateToHome}
+          onClick={navigateToCard}
         >Cancel</button>
       <h2>Update {contact.name}</h2>
       <form action="PUT" onSubmit={handleUpdate}>
         <label>Name: </label>
-        <input type="text" id="name" placeholder={contact.name}/><br/><br/>
+        <input type="text" id="name" defaultValue={contact.name}/><br/><br/>
+        <label>Phone: </label>
+        <input type="tel" id="phone" defaultValue={contact.phone}/><br/><br/>
         <label>Email: </label>
-        <input type="email" id="email" placeholder={contact.email}/><br/><br/>
+        <input type="email" id="email" defaultValue={contact.email}/><br/><br/>
         <label>Date of birth: </label>
-        <input type="date" id="dob" placeholder={contact.dob}/><br/><br/>
+        <input type="date" id="dob" defaultValue={contact.dob}/><br/><br/>
         <button type="submit">Update</button>
       </form>
     </div>
   );
 }
+
+export default UpdateContact;

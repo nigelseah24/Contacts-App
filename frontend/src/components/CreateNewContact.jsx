@@ -8,6 +8,7 @@ export default function CreateNewContact() {
   // State variables to track form input values and form validity
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     dob: "",
   });
@@ -23,7 +24,8 @@ export default function CreateNewContact() {
     });
     // Check form validity
     setIsFormValid(
-      formData.name.trim() !== "" &&
+        formData.name.trim() !== "" &&
+        formData.phone.trim() !== "" &&
         formData.email.trim() !== "" &&
         formData.dob.trim() !== ""
     );
@@ -41,6 +43,7 @@ export default function CreateNewContact() {
     const url = "http://localhost:8080/api/v1/contact";
     const data = {
       name: formData.name,
+      phone: formData.phone,
       email: formData.email,
       dob: formData.dob,
     };
@@ -85,6 +88,13 @@ export default function CreateNewContact() {
           type="text"
           name="name"
           value={formData.name}
+          onChange={handleInputChange}
+        /><br/><br/>
+        <label>Phone: </label>
+        <input
+          type="tel"
+          name="phone"
+          value={formData.phone}
           onChange={handleInputChange}
         /><br/><br/>
         <label>Email: </label>
