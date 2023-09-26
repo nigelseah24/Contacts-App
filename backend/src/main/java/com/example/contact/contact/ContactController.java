@@ -46,8 +46,9 @@ public class ContactController {
     public void updateContact(
             @PathVariable("contactId") Long contactId,
             @RequestParam(required = false) String name,
+            @RequestParam(required = false) String phone,
             @RequestParam(required = false) String email,
             @RequestParam(required = false) LocalDate dob) {
-        contactService.updateContact(contactId, name, email, dob);
+        contactService.updateContact(contactId, name, phone, email, dob);
     }
 }

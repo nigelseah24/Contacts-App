@@ -79,7 +79,6 @@ export default function CreateNewContact() {
         >
           Cancel
         </button>{" "}
-        {/* Add a Cancel button */}
         <h2 className="new-contact-subheader-title">Register New Contact</h2>
       </div>
       <form onSubmit={handleSubmit}>

@@ -1,7 +1,6 @@
 function TableOfContacts({ toggleContactCard, sortedContacts}) {
     return (
       <div>
-        <h2>Contact Table</h2>
         <table>
           <thead>
             <tr>

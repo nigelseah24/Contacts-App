@@ -5,7 +5,12 @@ function UpdateContact() {
   const location = useLocation();
   const contact  = location.state.contact;
   const navigate = useNavigate();
-  
+
+  // Function to navigate to the home page
+  const navigateToHome = () => {
+    navigate("/");
+  };
+
   // Function to navigate to the home page
   const navigateToCard = () => {
     navigate("/card", { state: { contact } });
@@ -14,7 +19,7 @@ function UpdateContact() {
   function handleUpdate(event) {
     event.preventDefault();
     const data = {
-      id: document.getElementById("id").value,
+      id: contact.id,
       name: document.getElementById("name").value,
       phone: document.getElementById("phone").value,
       email: document.getElementById("email").value,
@@ -31,7 +36,8 @@ function UpdateContact() {
       .put(url, data, config)
       .then(response => {
         console.log("Contact updated successfully");
-        // Perform any additional actions after successful update
+        navigateToHome();
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error updating contact:", error);

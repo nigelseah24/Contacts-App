@@ -8,43 +8,15 @@ function ContactCard(){
     const navigate = useNavigate();
     const [editable, setEditable] = useState(false);
 
-    // Function to navigate to the home page
+    // Function to navigate to the home page and pass the search query
     const navigateToHome = () => {
-        navigate("/");
+        navigate("/", { state: { searchQuery: location.state.searchQuery } });
     };
 
     const editContact = () => {
         // Navigate to the /update route and pass the contact data as state
         navigate("/update", { state: { contact } });
     }
-
-    function handleUpdate(event) {
-        event.preventDefault();
-        const data = {
-          id: document.getElementById("id").value,
-          name: document.getElementById("name").value,
-          phone: document.getElementById("phone").value,
-          email: document.getElementById("email").value,
-          dob: document.getElementById("dob").value,
-        };
-        const url = `http://localhost:8080/api/v1/contact/${data.id}?name=${data.name}phone=${data.phone}&email=${data.email}&dob=${data.dob}`;
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-    
-        axios
-          .put(url, data, config)
-          .then(response => {
-            console.log("Contact updated successfully");
-            // Perform any additional actions after successful update
-          })
-          .catch((error) => {
-            console.error("Error updating contact:", error);
-            // Handle error case
-          });
-      }
 
     return (
         <>
@@ -67,4 +39,5 @@ function ContactCard(){
         </>
     )
 }
+
 export default ContactCard;

@@ -52,13 +52,23 @@ public class ContactService {
     }
 
     @Transactional
-    public void updateContact(Long contactId, String name, String email, LocalDate dob){
+    public void updateContact(Long contactId, String name, String phone, String email, LocalDate dob){
         Contact contact = contactRepository.findById(contactId).orElseThrow(
                 () -> new IllegalStateException("Student with id " + contactId + " does not exist")
         );
 
         if (name != null && name.length() > 0 && !contact.getName().equals(name)) {
             contact.setName(name);
+        }
+
+        if(phone !=null && phone.length() > 0 && !contact.getPhone().equals(phone)) {
+            Optional<Contact> contactOptional = contactRepository.findContactByPhone(phone);
+            if(contactOptional.isPresent()){
+                throw new IllegalStateException("phone number taken");
+            }
+            else {
+                contact.setPhone(phone);
+            }
         }
 
         if(email !=null && email.length() > 0 && !contact.getEmail().equals(email)) {

@@ -16,4 +16,7 @@ public interface ContactRepository
 
     @Query("SELECT c FROM Contact c WHERE c.name = ?1")
     Optional<Contact> findContactByName(String name);
+
+    @Query("SELECT c FROM Contact c WHERE c.phone = ?1")
+    Optional<Contact> findContactByPhone(String phone);
 }
