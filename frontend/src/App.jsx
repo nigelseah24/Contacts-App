@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from '../src/components/Header';
 import SearchBar from './components/SearchBar';
 import CreateNewContact from './components/CreateNewContact';
-import TableOfContacts from './components/TableOfContacts';
+import ContactList from './components/ContactList';
 import UpdateContact from './components/UpdateContact';
 import ContactCard from './components/ContactCard';
 import './App.css';
@@ -59,10 +59,10 @@ function App() {
               <button onClick={navigateToCreate} className='new-contact-button'>+</button>
             </div>
             {searchQuery === '' ? (
-              <TableOfContacts sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate} />
+              <ContactList sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate} />
             ) : (
               filteredContacts.length > 0 ? (
-                <TableOfContacts sortedContacts={filteredContacts} toggleContactCard={navigateToUpdate} />
+                <ContactList sortedContacts={filteredContacts} toggleContactCard={navigateToUpdate} />
               ) : (
                 <p>No matching contacts found.</p>
               )
