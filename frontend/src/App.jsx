@@ -10,6 +10,7 @@ import ContactCard from './components/ContactCard';
 import './App.css';
 
 function App() {
+  const navigate = useNavigate();
   const [contacts, setContacts] = useState([]);
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState(''); // State to store the search query
@@ -27,8 +28,6 @@ function App() {
 
   // Sort the contacts by name in alphabetical order
   const sortedContacts = [...contacts].sort((a, b) => a.name.localeCompare(b.name));
-
-  const navigate = useNavigate();
 
   // Function to navigate to the "/create" route
   const navigateToCreate = () => {

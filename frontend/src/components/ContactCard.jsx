@@ -1,12 +1,9 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
-import { useState } from "react";
 
 function ContactCard(){
     const location = useLocation();
     const contact = location.state.contact;
     const navigate = useNavigate();
-    const [editable, setEditable] = useState(false);
 
     // Function to navigate to the home page and pass the search query
     const navigateToHome = () => {
@@ -22,12 +19,12 @@ function ContactCard(){
         <>
         <div className="contact-card-header">
             <button
-                className="new-contact-subheader-button"
+                className="contact-subheader-button"
                 onClick={navigateToHome}
             > &lt; Contacts</button>
             <h2>{contact.name}</h2>
             <button
-                className="new-contact-subheader-button"
+                className="contact-subheader-button"
                 onClick={editContact}
             > Edit</button>
         </div>

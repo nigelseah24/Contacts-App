@@ -1,6 +1,7 @@
 * {
   background-color: rgb(40, 40, 40);
   color: white;
+  font-family: SanFranciscoText-Regular, BlinkMacSystemFont, sans-serif;
 }
 
 .header {
@@ -9,25 +10,27 @@
   justify-content: center;
 }
 
-.subheader, .new-contact-subheader {
+.subheader, .contact-subheader {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.contact-subheader-title {
+  flex-grow: 2;
+  text-align: center;
+}
+
+.contact-subheader-button {
+  border: none;
+  width: 70px;
+  color: rgb(0, 149, 255);
+  cursor: pointer;
 }
 
 .contacts-individual {
   padding: 50px;
-  cursor: pointer;
-}
-
-.new-contact-subheader-title {
-  padding: 0 50px 0 50px;
-}
-
-.new-contact-subheader-button {
-  height: 30px;
-  margin: 18px 250px 0 0;
-  border: none;
-  color: rgb(0, 149, 255);
   cursor: pointer;
 }
 
@@ -45,4 +48,18 @@
 
 .contact-card-header {
   display: flex;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 30px;
+  padding-left: 10px;
+  width: 400px;
 }

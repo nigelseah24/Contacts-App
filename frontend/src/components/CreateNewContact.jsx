@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateNewContact() {
   const navigate = useNavigate();
+  const submitButtonRef = useRef();
 
   // State variables to track form input values and form validity
   const [formData, setFormData] = useState({
@@ -72,49 +73,61 @@ export default function CreateNewContact() {
 
   return (
     <div>
-      <div className="new-contact-subheader">
+      <div className="contact-subheader">
         <button
-          className="new-contact-subheader-button"
+          className="contact-subheader-button"
           onClick={navigateToHome}
         >
           Cancel
-        </button>{" "}
-        <h2 className="new-contact-subheader-title">Register New Contact</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <label>Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleInputChange}
-        /><br/><br/>
-        <label>Phone: </label>
-        <input
-          type="tel"
-          name="phone"
-          value={formData.phone}
-          onChange={handleInputChange}
-        /><br/><br/>
-        <label>Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        /><br/><br/>
-        <label>Date of Birth: </label>
-        <input
-          type="date"
-          name="dob"
-          value={formData.dob}
-          onChange={handleInputChange}
-        /><br/><br/>
-        <button type="submit" disabled={!isFormValid}>
-          Done
         </button>
-      </form>
-      <button onClick={handleRefresh}>Refresh</button>
+        <h2 className="contact-subheader-title">New Contact</h2>
+        <button
+          className="contact-subheader-button"
+          onClick={() => submitButtonRef.current.click()}
+          disabled={!isFormValid}>
+            Done
+        </button>
+      </div>
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+          <input
+          className="form-input"
+            type="text"
+            name="name"
+            value={formData.name}
+            placeholder="Name"
+            onChange={handleInputChange}
+          /><br/><br/>
+          <input
+          className="form-input"
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            placeholder="Phone number"
+            onChange={handleInputChange}
+          /><br/><br/>
+          <input
+          className="form-input"
+            type="email"
+            name="email"
+            value={formData.email}
+            placeholder="Email"
+            onChange={handleInputChange}
+          /><br/><br/>
+          <input
+          className="form-input"
+            type="text"
+            name="dob"
+            value={formData.dob}
+            placeholder="Birth date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => (e.target.type = "text")}
+            onChange={handleInputChange}
+          /><br/><br/>
+          <button type="submit" ref={submitButtonRef} style={{ border: 'none'}}>
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

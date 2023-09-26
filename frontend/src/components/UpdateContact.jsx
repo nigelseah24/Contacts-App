@@ -48,7 +48,7 @@ function UpdateContact() {
   return (
     <div>
         <button
-          className="new-contact-subheader-button"
+          className="contact-subheader-button"
           onClick={navigateToCard}
         >Cancel</button>
       <h2>Update {contact.name}</h2>
