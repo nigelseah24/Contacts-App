@@ -72,7 +72,7 @@ export default function CreateNewContact() {
   }
 
   return (
-    <div>
+    <div className="new-contact">
       <div className="contact-subheader">
         <button
           className="contact-subheader-button"

@@ -28,21 +28,22 @@ body {
 
 .contact-subheader-button {
   border: none;
-  width: 70px;
+  width: 80px;
   color: rgb(0, 149, 255);
   cursor: pointer;
 }
 
 .contacts-individual {
-  padding: 5px;
-  width: 1000px;
+  padding: 10px;
+  width: 700px;
   border-bottom: 0.5px solid black;
   cursor: pointer;
 }
 
-.contact-list {
+.contact-list, .contact-details {
   display: flex;
-  padding: 0 50px 0 50px;
+  flex-direction: column;
+  padding: 0 70px 0 70px;
   justify-content: left;
   align-items: left;
 }

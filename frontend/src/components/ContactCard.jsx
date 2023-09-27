@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function ContactCard(){
+    const submitButtonRef = useRef();
     const location = useLocation();
     const contact = location.state.contact;
     const navigate = useNavigate();
@@ -17,18 +19,18 @@ function ContactCard(){
 
     return (
         <>
-        <div className="contact-card-header">
+        <div className="contact-subheader">
             <button
                 className="contact-subheader-button"
                 onClick={navigateToHome}
             > &lt; Contacts</button>
-            <h2>{contact.name}</h2>
+            <h2 className="contact-subheader-title">{contact.name}</h2>
             <button
                 className="contact-subheader-button"
                 onClick={editContact}
             > Edit</button>
         </div>
-        <div>
+        <div className="contact-details">
             <p>mobile: {contact.phone}</p>
             <p>email: {contact.email}</p>
             <p>date of birth: {contact.dob}</p>
