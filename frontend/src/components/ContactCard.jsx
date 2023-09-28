@@ -27,7 +27,7 @@ function ContactCard(){
 
     const editContact = () => {
         // Navigate to the /update route and pass the contact data as state
-        navigate("/update", { state: { contact } });
+        navigate("/update", { state: { contact : updatedContact } });
     }
 
     return (
