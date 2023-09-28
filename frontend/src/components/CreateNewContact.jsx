@@ -75,14 +75,12 @@ export default function CreateNewContact() {
     <div className="new-contact">
       <div className="contact-subheader">
         <button
-          className="contact-subheader-button"
           onClick={navigateToHome}
         >
           Cancel
         </button>
-        <h2 className="contact-subheader-title">New Contact</h2>
+        <h2>New Contact</h2>
         <button
-          className="contact-subheader-button"
           onClick={() => submitButtonRef.current.click()}
           disabled={!isFormValid}>
             Done
@@ -91,7 +89,6 @@ export default function CreateNewContact() {
       <div className="form">
         <form onSubmit={handleSubmit}>
           <input
-          className="form-input"
             type="text"
             name="name"
             value={formData.name}
@@ -99,7 +96,6 @@ export default function CreateNewContact() {
             onChange={handleInputChange}
           /><br/><br/>
           <input
-          className="form-input"
             type="tel"
             name="phone"
             value={formData.phone}
@@ -107,7 +103,6 @@ export default function CreateNewContact() {
             onChange={handleInputChange}
           /><br/><br/>
           <input
-          className="form-input"
             type="email"
             name="email"
             value={formData.email}
@@ -115,7 +110,6 @@ export default function CreateNewContact() {
             onChange={handleInputChange}
           /><br/><br/>
           <input
-          className="form-input"
             type="text"
             name="dob"
             value={formData.dob}
