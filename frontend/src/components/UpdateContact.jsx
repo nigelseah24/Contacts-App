@@ -1,10 +1,12 @@
 import axios from "axios";
-import {useNavigate, useLocation } from "react-router-dom";
+import { useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function UpdateContact() {
   const location = useLocation();
   const contact  = location.state.contact;
   const navigate = useNavigate();
+  const submitButtonRef = useRef();
 
   // Function to navigate to the home page
   const navigateToHome = () => {
@@ -36,8 +38,7 @@ function UpdateContact() {
       .put(url, data, config)
       .then(response => {
         console.log("Contact updated successfully");
-        navigateToHome();
-        window.location.reload();
+        navigateToCard();
       })
       .catch((error) => {
         console.error("Error updating contact:", error);
@@ -47,21 +48,47 @@ function UpdateContact() {
 
   return (
     <div>
-        <button
-          className="contact-subheader-button"
-          onClick={navigateToCard}
-        >Cancel</button>
-      <h2>Update {contact.name}</h2>
-      <form action="PUT" onSubmit={handleUpdate}>
-        <label>Name: </label>
-        <input type="text" id="name" defaultValue={contact.name}/><br/><br/>
-        <label>Phone: </label>
-        <input type="tel" id="phone" defaultValue={contact.phone}/><br/><br/>
-        <label>Email: </label>
-        <input type="email" id="email" defaultValue={contact.email}/><br/><br/>
-        <label>Date of birth: </label>
-        <input type="date" id="dob" defaultValue={contact.dob}/><br/><br/>
-        <button type="submit">Update</button>
+      <div className="contact-subheader">
+          <button
+              className="contact-subheader-button"
+              onClick={navigateToCard}
+          > Cancel</button>
+          <h2 className="contact-subheader-title">Edit</h2>
+          <button
+            className="contact-subheader-button"
+            onClick={() => submitButtonRef.current.click()}
+          >
+              Done
+          </button>
+      </div>
+      <form className="form" action="PUT" onSubmit={handleUpdate}>
+        <input 
+          className="form-input"
+          type="text" id="name" 
+          defaultValue={contact.name}
+        />
+        <br/><br/>
+        <input 
+          className="form-input"
+          type="tel" id="phone" 
+          defaultValue={contact.phone}
+        />
+        <br/><br/>
+        <input 
+          className="form-input"
+          type="email" id="email" 
+          defaultValue={contact.email}
+        />
+        <br/><br/>
+        <input 
+          className="form-input"
+          type="text" id="dob" 
+          defaultValue={contact.dob} 
+          onFocus={(e) => (e.target.type = "date")}
+          onBlur={(e) => (e.target.type = "text")}
+        /><br/><br/>
+        <button type="submit" ref={submitButtonRef} style={{ border: 'none'}}>
+        </button>
       </form>
     </div>
   );

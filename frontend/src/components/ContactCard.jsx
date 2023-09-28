@@ -1,15 +1,28 @@
-import { useRef } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function ContactCard(){
-    const submitButtonRef = useRef();
     const location = useLocation();
     const contact = location.state.contact;
+    const [updatedContact, setUpdatedContact] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        axios
+          .get(`http://localhost:8080/api/v1/contact/${contact.id}`)
+          .then(response => {
+            setUpdatedContact(response.data);
+          })
+          .catch(error => {
+            console.error("Error fetching contact data:", error);
+          });
+      }, []);
 
     // Function to navigate to the home page and pass the search query
     const navigateToHome = () => {
-        navigate("/", { state: { searchQuery: location.state.searchQuery } });
+        navigate("/", { state: { searchQuery: location.state.searchQuery } })
+        window.location.reload();
     };
 
     const editContact = () => {
@@ -24,16 +37,17 @@ function ContactCard(){
                 className="contact-subheader-button"
                 onClick={navigateToHome}
             > &lt; Contacts</button>
-            <h2 className="contact-subheader-title">{contact.name}</h2>
+            <h2 className="contact-subheader-title">{updatedContact.name}</h2>
             <button
                 className="contact-subheader-button"
                 onClick={editContact}
             > Edit</button>
         </div>
         <div className="contact-details">
-            <p>mobile: {contact.phone}</p>
-            <p>email: {contact.email}</p>
-            <p>date of birth: {contact.dob}</p>
+            <p>mobile: {updatedContact.phone}</p>
+            <p>email: {updatedContact.email}</p>
+            <p>age: {updatedContact.age}</p>
+            <p>date of birth: {updatedContact.dob}</p>
         </div>
         </>
     )

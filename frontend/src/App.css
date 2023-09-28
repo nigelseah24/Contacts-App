@@ -44,6 +44,9 @@ body {
   display: flex;
   flex-direction: column;
   padding: 0 70px 0 70px;
+}
+
+.contact-details {
   justify-content: left;
   align-items: left;
 }
@@ -66,6 +69,7 @@ body {
 
 .form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
