@@ -97,20 +97,15 @@ function UpdateContact() {
           onFocus={(e) => (e.target.type = "date")}
           onBlur={(e) => (e.target.type = "text")}
         /><br/><br/>
-        <button
-          className="contact-delete-button"
-          onClick={handleDeleteConfirmation}
-        >
-          Delete contact
-        </button>
         <button type="submit" ref={submitButtonRef} style={{ border: 'none'}}>
         </button>
-        <button
-          type="submit"
-          ref={submitButtonRef}
-          style={{ border: "none" }}
-        ></button>
       </form>
+      {/* <button
+        className="contact-delete-button"
+        onClick={handleDeleteConfirmation}
+      >
+        Delete contact
+      </button> */}
       {/* Confirmation Pop-up */}
       {showConfirmation && (
         <div className="confirmation-popup">
