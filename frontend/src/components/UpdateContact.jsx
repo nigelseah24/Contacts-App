@@ -54,7 +54,29 @@ function UpdateContact() {
   // Function to handle form submission
   const handleUpdate = (event) => {
     event.preventDefault();
-    // ... (rest of the update code)
+    const data = {
+      id: document.getElementById("id").value,
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      dob: document.getElementById("dob").value,
+    };
+    const url = `http://localhost:8080/api/v1/contact/${data.id}?name=${data.name}&email=${data.email}&dob=${data.dob}`;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    axios
+      .put(url, data, config)
+      .then(response => {
+        console.log("Contact updated successfully");
+        // Perform any additional actions after successful update
+      })
+      .catch((error) => {
+        console.error("Error updating contact:", error);
+        // Handle error case
+      });
   };
 
   return (
