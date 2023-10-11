@@ -26,24 +26,24 @@ function UpdateContact() {
 
   // Function to confirm and delete the contact
   const handleDelete = () => {
-    // const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`;
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
+    const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-    // axios
-    //   .delete(url, config)
-    //   .then((response) => {
-    //     console.log("Contact deleted successfully");
-    //     navigateToHome();
-    //     window.location.reload();
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error deleting contact:", error);
-    //     // Handle error case
-    //   });
+    axios
+      .delete(url, config)
+      .then((response) => {
+        console.log("Contact deleted successfully");
+        navigateToHome();
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error deleting contact:", error);
+        // Handle error case
+      });
   };
 
   // Function to cancel contact deletion

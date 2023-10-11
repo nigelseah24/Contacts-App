@@ -39,32 +39,32 @@ export default function CreateNewContact() {
 
   // Function to handle form submission
   const handleSubmit = (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
-    // const url = "https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact";
-    // const data = {
-    //   name: formData.name,
-    //   phone: formData.phone,
-    //   email: formData.email,
-    //   dob: formData.dob,
-    // };
-    // const config = {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // };
+    const url = "https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact";
+    const data = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      dob: formData.dob,
+    };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-    // axios
-    //   .post(url, data, config)
-    //   .then((response) => {
-    //     console.log("Contact created successfully");
-    //     navigateToHome();
-    //     window.location.reload();
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error creating contact:", error);
-    //     // Handle error case
-    //   });
+    axios
+      .post(url, data, config)
+      .then((response) => {
+        console.log("Contact created successfully");
+        navigateToHome();
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error creating contact:", error);
+        // Handle error case
+      });
   };
 
   function handleRefresh() {
