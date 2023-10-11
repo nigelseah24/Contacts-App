@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin(origins = "http://127.0.0.1:5173/")
+@CrossOrigin(origins = "https://nigels-contact-app.netlify.app/")
 @RestController
 @RequestMapping(path = "api/v1/contact")
 public class ContactController {
