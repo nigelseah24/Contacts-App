@@ -41,7 +41,7 @@ export default function CreateNewContact() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const url = "https://contactsappbackend-nsh6b3jr.b4a.run//api/v1/contact";
+    const url = "https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact";
     const data = {
       name: formData.name,
       phone: formData.phone,

@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://contactsappbackend-nsh6b3jr.b4a.run//api/v1/contact")
+      .get("https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact")
       .then(response => {
         setContacts(response.data);
       })

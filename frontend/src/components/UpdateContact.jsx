@@ -26,7 +26,7 @@ function UpdateContact() {
 
   // Function to confirm and delete the contact
   const handleDelete = () => {
-    const url = `https://contactsappbackend-nsh6b3jr.b4a.run//api/v1/contact/${contact.id}`;
+    const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`;
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -100,12 +100,12 @@ function UpdateContact() {
         <button type="submit" ref={submitButtonRef} style={{ border: 'none'}}>
         </button>
       </form>
-      {/* <button
+      <button
         className="contact-delete-button"
         onClick={handleDeleteConfirmation}
       >
         Delete contact
-      </button> */}
+      </button>
       {/* Confirmation Pop-up */}
       {showConfirmation && (
         <div className="confirmation-popup">
