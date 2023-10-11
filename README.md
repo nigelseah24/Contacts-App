@@ -1,11 +1,11 @@
 # Contacts-App
 A simple app that uses CRUD to save contact information such as name, email, phone number. This app is made using ReactJS for the frontend and Spring Boot for the backend CRUD APIs.
 
-# Frontend
+### Frontend
 Made using React + Vite, hosted on netlify.
 
-# Backend / API
+### Backend / API
 Made using Spring, hosted on Data4App
 
-# Database
+### Database
 Made using PostgreSQL, hosted on Render
