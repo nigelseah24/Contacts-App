@@ -22,7 +22,6 @@ function ContactCard(){
     // Function to navigate to the home page and pass the search query
     const navigateToHome = () => {
         navigate("/", { state: { searchQuery: location.state.searchQuery } })
-        window.location.reload();
     };
 
     const editContact = () => {
