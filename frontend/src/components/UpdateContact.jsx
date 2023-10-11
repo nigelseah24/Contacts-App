@@ -71,7 +71,8 @@ function UpdateContact() {
       .put(url, data, config)
       .then(response => {
         console.log("Contact updated successfully");
-        // Perform any additional actions after successful update
+        navigateToHome();
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error updating contact:", error);
