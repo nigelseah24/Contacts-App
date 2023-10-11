@@ -10,7 +10,7 @@ function ContactCard(){
 
     useEffect(() => {
         axios
-          .get(`http://localhost:8080/api/v1/contact/${contact.id}`)
+          .get(`https://contactsappbackend-nsh6b3jr.b4a.run//api/v1/contact/${contact.id}`)
           .then(response => {
             setUpdatedContact(response.data);
           })
