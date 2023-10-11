@@ -8,16 +8,16 @@ function ContactCard(){
     const [updatedContact, setUpdatedContact] = useState([]);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        axios
-          .get(`https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`)
-          .then(response => {
-            setUpdatedContact(response.data);
-          })
-          .catch(error => {
-            console.error("Error fetching contact data:", error);
-          });
-      }, []);
+    // useEffect(() => {
+    //     axios
+    //       .get(`https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`)
+    //       .then(response => {
+    //         setUpdatedContact(response.data);
+    //       })
+    //       .catch(error => {
+    //         console.error("Error fetching contact data:", error);
+    //       });
+    //   }, []);
 
     // Function to navigate to the home page and pass the search query
     const navigateToHome = () => {

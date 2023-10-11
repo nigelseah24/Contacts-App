@@ -15,16 +15,16 @@ function App() {
   const [filteredContacts, setFilteredContacts] = useState([]);
   const [searchQuery, setSearchQuery] = useState(''); // State to store the search query
 
-  useEffect(() => {
-    axios
-      .get("https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact")
-      .then(response => {
-        setContacts(response.data);
-      })
-      .catch(error => {
-        console.error("Error fetching contact data:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact")
+  //     .then(response => {
+  //       setContacts(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.error("Error fetching contact data:", error);
+  //     });
+  // }, []);
 
   // Sort the contacts by name in alphabetical order
   const sortedContacts = [...contacts].sort((a, b) => a.name.localeCompare(b.name));
