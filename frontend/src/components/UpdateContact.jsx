@@ -60,7 +60,7 @@ function UpdateContact() {
       email: document.getElementById("email").value,
       dob: document.getElementById("dob").value,
     };
-    const url = `http://localhost:8080/api/v1/contact/${data.id}?name=${data.name}&email=${data.email}&dob=${data.dob}`;
+    const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${data.id}?name=${data.name}&email=${data.email}&dob=${data.dob}`;
     const config = {
       headers: {
         "Content-Type": "application/json",
