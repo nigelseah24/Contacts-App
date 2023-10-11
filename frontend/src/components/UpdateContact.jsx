@@ -55,12 +55,12 @@ function UpdateContact() {
   const handleUpdate = (event) => {
     event.preventDefault();
     const data = {
-      id: document.getElementById("id").value,
       name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
       email: document.getElementById("email").value,
       dob: document.getElementById("dob").value,
     };
-    const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${data.id}?name=${data.name}&email=${data.email}&dob=${data.dob}`;
+    const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}?name=${data.name}&phone=${data.phone}&email=${data.email}&dob=${data.dob}`;
     const config = {
       headers: {
         "Content-Type": "application/json",
