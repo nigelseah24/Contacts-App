@@ -71,6 +71,7 @@ function UpdateContact() {
       .put(url, data, config)
       .then(response => {
         console.log("Contact updated successfully");
+        navigateToCard();
         window.location.reload();
       })
       .catch((error) => {
