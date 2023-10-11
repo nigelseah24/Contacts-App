@@ -69,20 +69,14 @@ public class ContactService {
             else {
                 contact.setPhone(phone);
             }
-        }
 
-        if(email !=null && email.length() > 0 && !contact.getEmail().equals(email)) {
-            Optional<Contact> contactOptional = contactRepository.findContactByEmail(email);
-            if(contactOptional.isPresent()){
-                throw new IllegalStateException("email taken");
-            }
-            else {
+            if (email != null && email.length() > 0) {
                 contact.setEmail(email);
             }
-        }
-        if(dob != null) {
-            contact.setDob(dob);
+
+            if (dob != null) {
+                contact.setDob(dob);
+            }
         }
     }
-
 }
