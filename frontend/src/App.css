@@ -88,7 +88,7 @@ body {
   z-index: 998; /* Set a lower z-index than the confirmation pop-up */
 } 
 
-.form {
+.form, .contact-delete-button-div {
   display: flex;
   flex-direction: column;
   justify-content: center;

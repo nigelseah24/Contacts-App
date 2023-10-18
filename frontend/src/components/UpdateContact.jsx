@@ -126,12 +126,14 @@ function UpdateContact() {
         <button type="submit" ref={submitButtonRef} style={{ border: 'none'}}>
         </button>
       </form>
-      <button
-        className="contact-delete-button"
-        onClick={handleDeleteConfirmation}
-      >
-        Delete contact
-      </button>
+      <div className="contact-delete-button-div">
+        <button
+          className="contact-delete-button"
+          onClick={handleDeleteConfirmation}
+        >
+          Delete contact
+        </button>
+      </div>
       {/* Confirmation Pop-up */}
       {showConfirmation && (
         <div className="confirmation-popup">
