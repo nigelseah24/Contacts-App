@@ -26,7 +26,10 @@ function UpdateContact() {
 
   // Function to confirm and delete the contact
   const handleDelete = () => {
+    // Prod (uncomment this and comment the next line to test the production backend):
     const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`;
+    // Dev (uncomment this and comment the previous line to test the development backend)):
+    // const url = `http://localhost:8080/api/v1/contact/${contact.id}`;
     const config = {
       headers: {
         "Content-Type": "application/json",

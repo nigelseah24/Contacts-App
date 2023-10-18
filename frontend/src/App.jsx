@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Box } from '@mui/material';
 import axios from 'axios';
 import Header from '../src/components/Header';
 import SearchBar from './components/SearchBar';
@@ -17,7 +18,10 @@ function App() {
 
   useEffect(() => {
     axios
+      // Prod (uncomment this and comment the next line to test the production backend):
       .get("https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact")
+      // Dev (uncomment this and comment the previous line to test the development backend)):
+      //.get("http://localhost:8080/api/v1/contact")
       .then(response => {
         setContacts(response.data);
       })
@@ -53,7 +57,16 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={
-          <main>
+          <Box sx={{
+            height: '100%',
+            width: {
+              xs: '100',
+              sm: '200',
+              md: '300',
+              lg: '400',
+              xl: '500',
+            },
+          }}>
             <div className='subheader'>
               <SearchBar sortedContacts={sortedContacts} setFilteredContacts={setFilteredContacts} searchQuery={searchQuery} updateSearchQuery={updateSearchQuery} />
               <button onClick={navigateToCreate} className='new-contact-button'>+</button>
@@ -67,7 +80,7 @@ function App() {
                 <p>No matching contacts found.</p>
               )
             )}
-          </main>
+          </Box>
         } />
         <Route path='/card' element={<ContactCard />} />
         <Route path="/update" element={<UpdateContact />} />
