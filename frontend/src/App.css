@@ -30,7 +30,6 @@
 
 .contacts-individual {
   padding: 10px;
-  width: 700px;
   border-bottom: 0.5px solid black;
   cursor: pointer;
 }
@@ -51,7 +50,6 @@
 .new-contact-button {
   height: 30px;
   width: 30px;
-  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -64,7 +62,6 @@
 
 .search-bar {
   padding: 20px;
-  margin-right: 200px;
 }
 
 .contact-card-header {
@@ -95,7 +92,7 @@
   border-radius: 5px;
   height: 30px;
   padding-left: 10px;
-  width: 400px;
+  width: 300px;
   text-align: center;
 }
 
