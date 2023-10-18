@@ -121,8 +121,8 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 390px) {
-  .form input {
+@media screen and (max-width: 425px) {
+  .form input, .contact-delete-button {
     border: 1px solid black;
     border-radius: 5px;
     height: 30px;
@@ -131,5 +131,18 @@
     text-align: center;
   }
 
+  .contact-list{
+    width: 300px;
+    display: flex;
+    padding-left: 40px;
+  }
+
+  .contacts-individual {
+    justify-content: center;
+  }
+
+  .contact-details {
+    padding: 0 50px 0 50px;
+  }
 }
   

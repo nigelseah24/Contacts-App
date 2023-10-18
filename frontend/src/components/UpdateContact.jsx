@@ -29,7 +29,7 @@ function UpdateContact() {
     // Prod (uncomment this and comment the next line to test the production backend):
     const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`;
     // Dev (uncomment this and comment the previous line to test the development backend)):
-    // const url = `http://localhost:8080/api/v1/contact/${contact.id}`;
+    //const url = `http://localhost:8080/api/v1/contact/${contact.id}`;
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,10 @@ function UpdateContact() {
       email: document.getElementById("email").value,
       dob: document.getElementById("dob").value,
     };
+    // Prod (uncomment this and comment the next line to test the production backend):
     const url = `https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}?name=${data.name}&phone=${data.phone}&email=${data.email}&dob=${data.dob}`;
+    // Dev (uncomment this and comment the previous line to test the development backend)):
+    //const url = `http://localhost:8080/api/v1/contact/${contact.id}?name=${data.name}&phone=${data.phone}&email=${data.email}&dob=${data.dob}`;
     const config = {
       headers: {
         "Content-Type": "application/json",

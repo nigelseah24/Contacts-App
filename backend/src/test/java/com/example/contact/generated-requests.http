@@ -5,7 +5,7 @@ Content-Type: JSON
 GET http://localhost:8080/api/v1/contact
 
 ###
-GET http://localhost:8080/api/v1/contact/searchByName?name=Mariam
+GET http://localhost:8080/api/v1/contact/searchByName?name=Maria
 
 ###
 DELETE http://localhost:8080/api/v1/contact/1

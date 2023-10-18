@@ -13,7 +13,7 @@ function ContactCard(){
           // Prod (uncomment this and comment the next line to test the production backend):
           .get(`https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact/${contact.id}`)
           // Dev (uncomment this and comment the previous line to test the development backend)):
-          // .get(`http://localhost:8080/api/v1/contact/${contact.id}`)
+          //.get(`http://localhost:8080/api/v1/contact/${contact.id}`)
           .then(response => {
             setUpdatedContact(response.data);
           })
@@ -36,12 +36,10 @@ function ContactCard(){
         <>
         <div className="contact-subheader">
             <button
-                className="contact-subheader-button"
                 onClick={navigateToHome}
-            > &lt; Contacts</button>
+            > Back </button>
             <h2 className="contact-subheader-title">{updatedContact.name}</h2>
             <button
-                className="contact-subheader-button"
                 onClick={editContact}
             > Edit</button>
         </div>

@@ -44,7 +44,7 @@ export default function CreateNewContact() {
     // Prod (uncomment this and comment the next line to test the production backend):
     const url = "https://contactsappbackend-nsh6b3jr.b4a.run/api/v1/contact";
     // Dev (uncomment this and comment the previous line to test the development backend)):
-    // const url = "http://localhost:8080/api/v1/contact";
+    //const url = "http://localhost:8080/api/v1/contact";
     const data = {
       name: formData.name,
       phone: formData.phone,

@@ -1,7 +1,22 @@
+* {
+    background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        width: 768px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    body {
+        width: 425px;
+    }
+}
+
 @media screen and (max-width: 390px) {
     body {
         width: 390px;
     }
 }
-
 
