@@ -30,6 +30,7 @@
 
 .contacts-individual {
   padding: 10px;
+  width: 700px;
   border-bottom: 0.5px solid black;
   cursor: pointer;
 }
