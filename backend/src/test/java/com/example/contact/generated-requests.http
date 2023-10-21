@@ -1,4 +1,4 @@
-PUT http://localhost:8080/api/v1/contact/2?name=Maria&phone=0126083269&email=maria123@gmail&dob=2000-01-04
+PUT http://localhost:8080/api/v1/contact/1?name=Maria&phone=+60126083269&email=maria123@gmail&dob=2000-01-04
 Content-Type: JSON
 
 ###

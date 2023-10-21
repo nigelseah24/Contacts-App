@@ -14,7 +14,6 @@ public class ContactService {
 
     @Autowired
     public ContactService(ContactRepository contactRepository) {
-
         this.contactRepository = contactRepository;
     }
 

@@ -37,14 +37,14 @@ function ContactCard(){
         <div className="contact-subheader">
             <button
                 onClick={navigateToHome}
-            > Back </button>
+            > Back</button>
             <h2 className="contact-subheader-title">{updatedContact.name}</h2>
             <button
                 onClick={editContact}
             > Edit</button>
         </div>
         <div className="contact-details">
-            <p>mobile: {updatedContact.phone}</p>
+            <p>mobile: +{updatedContact.phone}</p>
             <p>email: {updatedContact.email}</p>
             <p>age: {updatedContact.age}</p>
             <p>date of birth: {updatedContact.dob}</p>

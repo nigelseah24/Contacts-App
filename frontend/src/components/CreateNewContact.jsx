@@ -1,15 +1,18 @@
 import axios from "axios";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 export default function CreateNewContact() {
   const navigate = useNavigate();
   const submitButtonRef = useRef();
+  const [phoneNumber, setPhoneNumber] = useState();
 
   // State variables to track form input values and form validity
   const [formData, setFormData] = useState({
     name: "",
-    phone: "",
+    phone: phoneNumber,
     email: "",
     dob: "",
   });
@@ -26,7 +29,6 @@ export default function CreateNewContact() {
     // Check form validity
     setIsFormValid(
         formData.name.trim() !== "" &&
-        formData.phone.trim() !== "" &&
         formData.email.trim() !== "" &&
         formData.dob.trim() !== ""
     );
@@ -47,7 +49,7 @@ export default function CreateNewContact() {
     //const url = "http://localhost:8080/api/v1/contact";
     const data = {
       name: formData.name,
-      phone: formData.phone,
+      phone: phoneNumber,
       email: formData.email,
       dob: formData.dob,
     };
@@ -98,12 +100,11 @@ export default function CreateNewContact() {
             placeholder="Name"
             onChange={handleInputChange}
           /><br/><br/>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
+          <PhoneInput 
             placeholder="Phone number"
-            onChange={handleInputChange}
+            value={formData.phone}
+            onChange={setPhoneNumber}
+            style={{width: '88%'}}
           /><br/><br/>
           <input
             type="email"

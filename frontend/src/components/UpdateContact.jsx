@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
 
 function UpdateContact() {
   const location = useLocation();
@@ -8,6 +10,7 @@ function UpdateContact() {
   const navigate = useNavigate();
   const submitButtonRef = useRef();
   const [showConfirmation, setShowConfirmation] = useState(false); // State for confirmation pop-up
+  const [phoneNumber, setPhoneNumber] = useState(contact.phone);
 
   // Function to navigate to the home page
   const navigateToHome = () => {
@@ -59,7 +62,7 @@ function UpdateContact() {
     event.preventDefault();
     const data = {
       name: document.getElementById("name").value,
-      phone: document.getElementById("phone").value,
+      phone: phoneNumber == "" ? contact.phone : phoneNumber,
       email: document.getElementById("email").value,
       dob: document.getElementById("dob").value,
     };
@@ -110,11 +113,12 @@ function UpdateContact() {
           defaultValue={contact.name}
         />
         <br/><br/>
-        <input 
-          type="tel" id="phone" 
-          defaultValue={contact.phone}
-        />
-        <br/><br/>
+        <PhoneInput 
+            placeholder="Phone number"
+            value={phoneNumber}
+            onChange={setPhoneNumber}
+            style={{width: '40%'}}
+        /><br/><br/>
         <input 
           type="email" id="email" 
           defaultValue={contact.email}
