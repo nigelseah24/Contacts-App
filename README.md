@@ -5,7 +5,7 @@ A simple app that uses CRUD to save contact information such as name, email, pho
 Made using React + Vite, hosted on netlify.
 
 ### Backend / API
-Made using Spring, hosted on Data4App
+Made using Spring, hosted on Back4App
 
 ### Database
 Made using PostgreSQL, hosted on Render
