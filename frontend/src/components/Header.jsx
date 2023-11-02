@@ -3,7 +3,7 @@
 export default function Header() {
     return (
         <div className="header">
-            <h1>Contacts</h1>
+            <h1>My Contacts</h1>
         </div>
     );
 }

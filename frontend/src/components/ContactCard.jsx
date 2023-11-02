@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import backbutton from "../icons/backbutton.svg";
+import editbutton from "../icons/editbutton.svg";
 
 function ContactCard(){
     const location = useLocation();
@@ -35,13 +37,17 @@ function ContactCard(){
     return (
         <>
         <div className="contact-subheader">
-            <button
+            <img 
+                src={backbutton}
                 onClick={navigateToHome}
-            > Back</button>
+                style={{cursor: 'pointer'}}
+            /> 
             <h2 className="contact-subheader-title">{updatedContact.name}</h2>
-            <button
+            <img 
+                src={editbutton}
                 onClick={editContact}
-            > Edit</button>
+                style={{cursor: 'pointer', paddingRight: '10px'}}
+            /> 
         </div>
         <div className="contact-details">
             <p>mobile: +{updatedContact.phone}</p>

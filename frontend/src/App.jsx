@@ -9,6 +9,8 @@ import ContactList from './components/ContactList';
 import UpdateContact from './components/UpdateContact';
 import ContactCard from './components/ContactCard';
 import './App.css';
+import searchIcon from "./icons/search.svg";
+import plusIcon from "./icons/plus.svg";
 
 function App() {
   const navigate = useNavigate();
@@ -53,40 +55,45 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={
-          <Box sx={{
-            height: '100%',
-            width: {
-              xs: '100',
-              sm: '200',
-              md: '300',
-              lg: '400',
-              xl: '500',
-            },
-          }}>
-            <div className='subheader'>
+      <>
+        <Routes>
+          <Route path="/" element={
+            <Box sx={{
+              height: '100%',
+              width: {
+                xs: '100',
+                sm: '200',
+                md: '300',
+                lg: '400',
+                xl: '500',
+              },
+            }}>
+              <Header />
               <SearchBar sortedContacts={sortedContacts} setFilteredContacts={setFilteredContacts} searchQuery={searchQuery} updateSearchQuery={updateSearchQuery} />
-              <button onClick={navigateToCreate} className='new-contact-button'>+</button>
-            </div>
-            {searchQuery === '' ? (
-              <ContactList sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate} />
-            ) : (
-              filteredContacts.length > 0 ? (
-                <ContactList sortedContacts={filteredContacts} toggleContactCard={navigateToUpdate} />
+              <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 1 }}>
+                <img
+                  src={plusIcon}
+                  alt="Create New Contact"
+                  onClick={navigateToCreate}
+                  style={{ cursor: 'pointer', borderRadius: '50%', width: '60px' }}
+                />
+              </div>
+              {searchQuery === '' ? (
+                <ContactList sortedContacts={sortedContacts} toggleContactCard={navigateToUpdate} />
               ) : (
-                <p>No matching contacts found.</p>
-              )
-            )}
-          </Box>
-        } />
-        <Route path='/card' element={<ContactCard />} />
-        <Route path="/update" element={<UpdateContact />} />
-        <Route path='/create' element={<CreateNewContact contact={contacts} />} />
-      </Routes>
-    </>
+                filteredContacts.length > 0 ? (
+                  <ContactList sortedContacts={filteredContacts} toggleContactCard={navigateToUpdate} />
+                ) : (
+                  <p>No matching contacts found.</p>
+                )
+              )}
+            </Box>
+          } />
+          <Route path='/card' element={<ContactCard />} />
+          <Route path="/update" element={<UpdateContact />} />
+          <Route path='/create' element={<CreateNewContact contact={contacts} />} />
+        </Routes>
+      </>
   )
 }
 

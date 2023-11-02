@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import searchLogo from '../icons/search.svg';
 
 export default function SearchBar({ sortedContacts, setFilteredContacts, searchQuery, updateSearchQuery }) {
   const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery);
@@ -24,11 +25,13 @@ export default function SearchBar({ sortedContacts, setFilteredContacts, searchQ
 
   return (
     <div className="search-bar">
+      <img src={searchLogo} alt="Search" style={{marginRight: '10px'}}/>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search by name..."
         value={localSearchQuery}
         onChange={handleSearch}
+        style={{border: 'none', outline: 'none', color: 'grey', width: '100%'}}
       />
     </div>
   );
